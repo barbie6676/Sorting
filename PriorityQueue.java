@@ -1,4 +1,4 @@
-package sort;
+import sort.Sorting;
 
 public class PriorityQueue {
 	public PriorityQueue(){
