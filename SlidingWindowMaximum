@@ -1,0 +1,18 @@
+import collections
+
+def maxSlidingWindow(A, w, B):
+  Q = collections.deque()
+  for i in range(w):
+    while Q and A[i] >= A[Q[len(Q)-1]]:
+      Q.pop()
+    Q.append(i)
+  
+  for i in range(w, n):
+    B[i-w] = A[Q[0]]
+    while Q and A[i] >= A[Q[len(Q)-1]]:
+      Q.pop()
+    while Q and Q[0] <= i-w:
+      Q.popleft()
+    Q.append(i)
+  
+  B[n-w] = A[Q[0]]
