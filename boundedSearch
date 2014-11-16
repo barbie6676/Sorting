@@ -1,0 +1,22 @@
+from Queue import PriorityQueue
+
+def boundedSort(A, k):
+  candidates_end = min(k + 1, len(A))
+  pq = PriorityQueue()
+  for i in range(k + 1):
+    pq.put(A[i])
+  i = 0
+  print "candidates %s " % candidates_end
+  print "q size %d" % pq.qsize()
+  while candidates_end < len(A):
+    A[i] = pq.get()
+    i += 1
+    pq.put(A[candidates_end])
+    candidates_end += 1
+  while not pq.empty():
+    A[i] = pq.get()
+    i += 1
+
+  return A
+
+print boundedSort([5,4,2,3,1], 2)
